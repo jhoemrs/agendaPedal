@@ -81,3 +81,15 @@ assetic:
         materialize_js:
             inputs:
                 - '%kernel.root_dir%/../vendor/materialize/css/js/materialize.min.js'
+        roboto_regular_woff:
+            inputs:
+                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Regular.woff2'
+            output: 'fonts/roboto/Roboto-Regular.woff2'
+        roboto_regular_woff2:
+            inputs:
+                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Regular.woff'
+            output: 'fonts/roboto/Roboto-Regular.woff'
+        roboto_regular_ttf:
+            inputs:
+                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Regular.ttf'
+            output: 'fonts/roboto/Roboto-Regular.ttf'

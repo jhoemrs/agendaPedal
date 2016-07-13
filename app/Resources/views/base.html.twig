@@ -9,7 +9,8 @@
     {% block stylesheets %}
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         {% stylesheets
-        '@materialize_css' %}
+            '@materialize_css'
+        %}
         <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
     {% endblock %}
@@ -21,8 +22,9 @@
 {% block body %}{% endblock %}
 {% block javascripts %}
     {% javascripts
-    '@jquery'
-    '@materialize_js' %}
+        '@jquery'
+        '@materialize_js'
+    %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 {% endblock %}
