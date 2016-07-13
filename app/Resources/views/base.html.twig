@@ -19,14 +19,17 @@
 
 </head>
 <body>
-{% block body %}{% endblock %}
 {% block javascripts %}
     {% javascripts
-        '@jquery'
-        '@materialize_js'
+    '@jquery'
+    '@materialize_js'
     %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
+{% endblock %}
+{% block body %}
+
+
 {% endblock %}
 </body>
 </html>
