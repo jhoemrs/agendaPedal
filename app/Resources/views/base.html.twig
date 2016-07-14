@@ -19,7 +19,11 @@
 
 </head>
 <body>
-{% block javascripts %}
+{% block body %}
+
+
+{% endblock %}
+{% block javascriptsPadrao %}
     {% javascripts
     '@jquery'
     '@materialize_js'
@@ -27,8 +31,7 @@
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 {% endblock %}
-{% block body %}
-
+{% block javascripts %}
 
 {% endblock %}
 </body>
