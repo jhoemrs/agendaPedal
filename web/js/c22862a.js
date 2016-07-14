@@ -136,7 +136,11 @@ var AgendaPedal = {
                 dadosFormulario[this.campos[campo].attr('name')] = this.campos[campo].val();
             }
         }
-
+        if (this.campos.apoioCarro.prop('checked')) {
+            dadosFormulario['apoioCarro'] = '1';
+        } else {
+            dadosFormulario['apoioCarro'] = '0';
+        }
         $.ajax({
             url: 'agendamento/salvar',
             type: "post",
