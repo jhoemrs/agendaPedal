@@ -10,8 +10,6 @@ var AgendaPedal = {
     $formulario: null,
     campos: [],
     dados: {},
-    validacaoLiberada: false,
-    formularioValido: false,
     formularioIniciado: false,
 
     //PRIVADOS------------------------------------------------------------------------------------------------//
@@ -31,6 +29,7 @@ var AgendaPedal = {
         this.campos.distanciaPedal    = $("#distanciaPedal");
         this.campos.estado            = $("#estado");
         this.campos.cidade            = $("#cidade");
+        this.campos.apoioCarro        = $("#apoioCarro");
         this.campos.observacoes       = $("#observacoes");
         this.campos.salvar            = $("#enviar");
 
@@ -125,26 +124,10 @@ var AgendaPedal = {
     },
     // FIM CARREGAMENTO CIDADE E ESTADO
 
-    //FEITO: VALIDAÇÕES
-    aplicarRegras: function() {
-        console.log('Não Há Regras');
-    },
-
-    realizarValidacoes: function() {
-        console.log('Não Há Parsley');
-    },
-    // FIM VALIDAÇÕES
-
     //FEITO: SALVAR
     salvar: function() {
         var dadosFormulario = {};
         myself = this;
-
-        this.realizarValidacoes();
-
-        if (this.formularioValido === false) {
-            return;
-        }
 
         for (var campo in this.campos) {
             if (this.campos[campo].attr('type') != 'radio') {
@@ -155,13 +138,12 @@ var AgendaPedal = {
         }
 
         $.ajax({
-            url: window.BASE_URL+'agendamento-online/consultorio/convenio/salvar',
+            url: 'agendamento/salvar',
             type: "post",
             cache: false,
-            blockUI: true,
             data: dadosFormulario,
             success: function(response) {
-                window.location= window.BASE_URL+'agendamento-online/consultorio/convenio/lista'
+                console.log('cheguei');
             }
         });
     }

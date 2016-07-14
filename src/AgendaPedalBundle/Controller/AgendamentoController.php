@@ -5,6 +5,7 @@ namespace AgendaPedalBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class AgendamentoController
@@ -45,8 +46,8 @@ class AgendamentoController extends Controller
     //------------------------------------------Publicos---------------------------------------------//
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/" , name="agendamento")
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction()
     {
@@ -86,6 +87,17 @@ class AgendamentoController extends Controller
         ));
     }
 
+    /**
+     * @Route("/agendamento/salvar" , name="agendamentoSalvar")
+     */
+    public function salvarAction(Request $request)
+    {
+
+        var_dump($request->request->all());exit;
+
+
+        var_dump('merda');
+    }
     //--------------------------------------Getters & Setters----------------------------------------//
 
 }
