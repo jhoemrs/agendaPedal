@@ -1,6 +1,16 @@
 services:
     ######################################  Agenda Pedal Bundle  #####################################
     ##################################################################################################
+    ##                                          Agendamento                                         ##
+    ##################################################################################################
+    agenda_pedal.agendamento.carregador:
+        class: AgendaPedalBundle\Services\Agendamento\AgendamentoCarregador
+        arguments: ["@doctrine.orm.entity_manager"]
+    agenda_pedal.agendamento.manipulador:
+        class: AgendaPedalBundle\Services\Agendamento\AgendamentoManipulador
+        arguments: ["@doctrine.orm.entity_manager"]
+    ##==============================================================================================##
+    ##################################################################################################
     ##                                        Distancia Pedal                                       ##
     ##################################################################################################
     agenda_pedal.distancia_pedal.carregador:

@@ -81,6 +81,14 @@ assetic:
         materialize_js:
             inputs:
                 - '%kernel.root_dir%/../vendor/materialize/css/js/materialize.min.js'
+        roboto_regular_eot:
+            inputs:
+                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Regular.eot'
+            output: 'fonts/roboto/Roboto-Regular.eot'
+        roboto_regular_ttf:
+            inputs:
+                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Regular.ttf'
+            output: 'fonts/roboto/Roboto-Regular.ttf'
         roboto_regular_woff:
             inputs:
                 - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Regular.woff2'
@@ -89,7 +97,67 @@ assetic:
             inputs:
                 - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Regular.woff'
             output: 'fonts/roboto/Roboto-Regular.woff'
-        roboto_regular_ttf:
+        roboto_bold_eot:
             inputs:
-                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Regular.ttf'
-            output: 'fonts/roboto/Roboto-Regular.ttf'
+                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Bold.eot'
+            output: 'fonts/roboto/Roboto-Bold.eot'
+        roboto_bold_ttf:
+            inputs:
+                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Bold.ttf'
+            output: 'fonts/roboto/Roboto-Bold.ttf'
+        roboto_bold_woff:
+            inputs:
+                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Bold.woff'
+            output: 'fonts/roboto/Roboto-Bold.woff'
+        roboto_bold_woff2:
+            inputs:
+                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Bold.woff2'
+            output: 'fonts/roboto/Roboto-Bold.woff2'
+        roboto_light_eot:
+            inputs:
+                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Light.eot'
+            output: 'fonts/roboto/Roboto-Light.eot'
+        roboto_light_ttf:
+            inputs:
+                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Light.ttf'
+            output: 'fonts/roboto/Roboto-Light.ttf'
+        roboto_light_woff:
+            inputs:
+                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Light.woff'
+            output: 'fonts/roboto/Roboto-Light.woff'
+        roboto_light_woff2:
+            inputs:
+                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Light.woff2'
+            output: 'fonts/roboto/Roboto-Light.woff2'
+        roboto_medium_eot:
+            inputs:
+                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Medium.eot'
+            output: 'fonts/roboto/Roboto-Medium.eot'
+        roboto_medium_ttf:
+            inputs:
+                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Medium.ttf'
+            output: 'fonts/roboto/Roboto-Medium.ttf'
+        roboto_medium_woff:
+            inputs:
+                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Medium.woff'
+            output: 'fonts/roboto/Roboto-Medium.woff'
+        roboto_medium_woff2:
+            inputs:
+                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Medium.woff2'
+            output: 'fonts/roboto/Roboto-Medium.woff2'
+        roboto_thin_eot:
+            inputs:
+                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Thin.eot'
+            output: 'fonts/roboto/Roboto-Thin.eot'
+        roboto_thin_ttf:
+            inputs:
+                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Thin.ttf'
+            output: 'fonts/roboto/Roboto-Thin.ttf'
+        roboto_thin_woff:
+            inputs:
+                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Thin.woff'
+            output: 'fonts/roboto/Roboto-Thin.woff'
+        roboto_thin_woff2:
+            inputs:
+                - '%kernel.root_dir%/../vendor/materialize/css/fonts/roboto/Roboto-Thin.woff2'
+            output: 'fonts/roboto/Roboto-Thin.woff2'

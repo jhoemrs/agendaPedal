@@ -16,14 +16,13 @@ class DistanciaPedal
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
-     *
+     * @ORM\Id
      * @ORM\Column(name="codigo", type="string", length=255, unique=true)
      */
     private $codigo;

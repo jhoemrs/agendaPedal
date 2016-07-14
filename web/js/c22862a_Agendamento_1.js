@@ -32,6 +32,7 @@ var AgendaPedal = {
         this.campos.apoioCarro        = $("#apoioCarro");
         this.campos.observacoes       = $("#observacoes");
         this.campos.salvar            = $("#enviar");
+        this.campos.data              = $("#dataPedal");
 
         this.aplicarMascarasNosCampos();
     },
@@ -41,8 +42,15 @@ var AgendaPedal = {
         if (this.formularioIniciado !== false) {
             return;
         }
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 1 // Creates a dropdown of 15 years to control year
+        });
+        $('#timepicker').pickatime({
+            autoclose: false,
+            twelvehour: false
+        });
         this.campos.cidade.attr({'disabled': true});
-        console.log('Aplica Mascara se Houver');
     },
 
     iniciarBotoes: function() {

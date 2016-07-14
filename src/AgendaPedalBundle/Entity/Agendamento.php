@@ -43,22 +43,61 @@ class Agendamento
     private $observacoes;
 
     /**
-     * @ORM\OneToOne(targetEntity="DistanciaPedal")
+     * @ORM\ManyToOne(targetEntity="DistanciaPedal")
      * @ORM\JoinColumn(name="distancia_pedal", referencedColumnName="codigo")
      */
     private $distanciaPedal;
 
     /**
-     * @ORM\OneToOne(targetEntity="RitmoPedal")
+     * @ORM\ManyToOne(targetEntity="RitmoPedal")
      * @ORM\JoinColumn(name="ritmo_pedal", referencedColumnName="codigo")
      */
     private $ritmoPedal;
 
     /**
-     * @ORM\OneToOne(targetEntity="TipoPedal")
+     * @ORM\ManyToOne(targetEntity="TipoPedal")
      * @ORM\JoinColumn(name="tipo_pedal", referencedColumnName="codigo")
      */
     private $tipoPedal;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Estado")
+     * @ORM\JoinColumn(name="estado", referencedColumnName="id")
+     */
+    private $estado;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Cidade")
+     * @ORM\JoinColumn(name="cidade", referencedColumnName="id")
+     */
+    private $cidade;
+
+    /**
+     * @var \DateTime
+     * @ORM\Column(name="data_pedal", type="datetime")
+     */
+    private $dataPedal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="hora_pedal", type="string", length=255)
+     */
+    private $horaPedal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="local_saida", type="string", length=255)
+     */
+    private $localSaida;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="local_destino", type="string", length=255)
+     */
+    private $localDestino;
 
     /**
      * Get id
@@ -195,6 +234,120 @@ class Agendamento
     public function setTipoPedal($tipoPedal)
     {
         $this->tipoPedal = $tipoPedal;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
+
+    /**
+     * @param mixed $estado
+     * @return Agendamento
+     */
+    public function setEstado($estado)
+    {
+        $this->estado = $estado;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCidade()
+    {
+        return $this->cidade;
+    }
+
+    /**
+     * @param mixed $cidade
+     * @return Agendamento
+     */
+    public function setCidade($cidade)
+    {
+        $this->cidade = $cidade;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDataPedal()
+    {
+        return $this->dataPedal;
+    }
+
+    /**
+     * @param \DateTime $dataPedal
+     * @return Agendamento
+     */
+    public function setDataPedal($dataPedal)
+    {
+        $this->dataPedal = $dataPedal;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHoraPedal()
+    {
+        return $this->horaPedal;
+    }
+
+    /**
+     * @param string $horaPedal
+     * @return Agendamento
+     */
+    public function setHoraPedal($horaPedal)
+    {
+        $this->horaPedal = $horaPedal;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLocalSaida()
+    {
+        return $this->localSaida;
+    }
+
+    /**
+     * @param string $localSaida
+     * @return Agendamento
+     */
+    public function setLocalSaida($localSaida)
+    {
+        $this->localSaida = $localSaida;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLocalDestino()
+    {
+        return $this->localDestino;
+    }
+
+    /**
+     * @param string $localDestino
+     * @return Agendamento
+     */
+    public function setLocalDestino($localDestino)
+    {
+        $this->localDestino = $localDestino;
 
         return $this;
     }

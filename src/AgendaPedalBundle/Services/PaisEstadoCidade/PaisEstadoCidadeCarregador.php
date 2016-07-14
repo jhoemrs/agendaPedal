@@ -74,6 +74,15 @@ class PaisEstadoCidadeCarregador
     }
 
     /**
+     * @param string $id
+     * @return null|object
+     */
+    public function findCidade($id)
+    {
+        return $this->cidadeRepository->find($id);
+    }
+
+    /**
      * @param object $estado
      * @return array
      */

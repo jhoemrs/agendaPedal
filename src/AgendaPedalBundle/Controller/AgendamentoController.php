@@ -2,6 +2,8 @@
 
 namespace AgendaPedalBundle\Controller;
 
+use AgendaPedalBundle\Entity\Agendamento;
+use AgendaPedalBundle\Utils\UtilFormat;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -89,14 +91,77 @@ class AgendamentoController extends Controller
 
     /**
      * @Route("/agendamento/salvar" , name="agendamentoSalvar")
+     * @param Request $request
+     * @return JsonResponse
      */
     public function salvarAction(Request $request)
     {
+        /* @var $distanciaCarregador \AgendaPedalBundle\Services\DistanciaPedal\DistanciaPedalCarregador */
+        $distanciaCarregador = $this->get('agenda_pedal.distancia_pedal.carregador');
+        /* @var $ritmoCarregador \AgendaPedalBundle\Services\RitmoPedal\RitmoPedalCarregador */
+        $ritmoCarregador = $this->get('agenda_pedal.ritmo_pedal.carregador');
+        /* @var $tipoCarregador \AgendaPedalBundle\Services\TipoPedal\TipoPedalCarregador */
+        $tipoCarregador = $this->get('agenda_pedal.tipo_pedal.carregador');
+        /* @var $paisEstadoCidadeCarregador \AgendaPedalBundle\Services\PaisEstadoCidade\PaisEstadoCidadeCarregador */
+        $paisEstadoCidadeCarregador = $this->get('agenda_pedal.pais_estado_cidade.carregador');
 
-        var_dump($request->request->all());exit;
+        $dataPedal      = $request->request->get('dataPedal');
+        $horaPedal      = $request->request->get('horaPedal');
+        $nomePedal      = $request->request->get('nomePedal');
+        $tipoPedal      = $request->request->get('tipoPedal');
+        $ritmoPedal     = $request->request->get('ritmoPedal');
+        $distanciaPedal = $request->request->get('distanciaPedal');
+        $estado         = $request->request->get('estado');
+        $cidade         = $request->request->get('cidade');
+        $apoioCarro     = $request->request->get('apoioCarro');
+        $observacoes    = $request->request->get('observacoes');
+        $localSaida     = $request->request->get('localSaida');
+        $localDestino   = $request->request->get('localDestino');
 
+        /* @var $agendamentoManipulador \AgendaPedalBundle\Services\Agendamento\AgendamentoManipulador */
+        $agendamentoManipulador = $this->get('agenda_pedal.agendamento.manipulador');
 
-        var_dump('merda');
+        /* @var $agendamento \AgendaPedalBundle\Entity\Agendamento */
+        $agendamento = new Agendamento();
+
+        if ($dataPedal) {
+            $agendamento->setDataPedal(UtilFormat::brToDate($dataPedal));
+        }
+        if ($horaPedal) {
+            $agendamento->setHoraPedal($horaPedal);
+        }
+        if ($nomePedal) {
+            $agendamento->setNome($nomePedal);
+        }
+        if ($tipoPedal) {
+            $agendamento->setTipoPedal($tipoCarregador->find($tipoPedal));
+        }
+        if ($ritmoPedal) {
+            $agendamento->setRitmoPedal($ritmoCarregador->find($ritmoPedal));
+        }
+        if ($distanciaPedal) {
+            $agendamento->setDistanciaPedal($distanciaCarregador->find($distanciaPedal));
+        }
+        if ($estado) {
+            $agendamento->setEstado($paisEstadoCidadeCarregador->findEstado($estado));
+        }
+        if ($cidade) {
+            $agendamento->setCidade($paisEstadoCidadeCarregador->findCidade($cidade));
+        }
+        if ($localSaida) {
+            $agendamento->setLocalSaida($localSaida);
+        }
+        if ($localDestino) {
+            $agendamento->setLocalDestino($localDestino);
+        }
+        if ($observacoes) {
+            $agendamento->setObservacoes($observacoes);
+        }
+        $agendamento->setApoio($apoioCarro);
+
+        $agendamentoManipulador->salvar($agendamento);
+
+        return new JsonResponse();
     }
     //--------------------------------------Getters & Setters----------------------------------------//
 

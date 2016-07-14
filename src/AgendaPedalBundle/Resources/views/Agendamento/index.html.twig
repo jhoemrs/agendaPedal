@@ -6,6 +6,7 @@
 {% block body %}
     {%stylesheets
         '@AgendaPedalBundle/Resources/public/css/Agendamento/Agendamento.css'
+        '@AgendaPedalBundle/Resources/public/css/Agendamento/materialize.clockpicker.css'
         %}
         <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
@@ -22,9 +23,21 @@
                     <div class="row">
                         <form class="col s12" id="agendamentoFormulario" action="#" method="post">
                             <div class="row">
+                                <div class="col s12">
+                                    <label for="dataPedal" class="">Data do Pedal</label>
+                                    <input type="date" class="datepicker" id="dataPedal" name="dataPedal">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label for="horaPedal">Time</label>
+                                    <input id="horaPedal" class="timepicker" type="time" name="horaPedal">
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="input-field col s12">
                                     <input id="nomePedal" name="nomePedal" type="text" class="validate">
-                                    <label for="first_name">Pedal</label>
+                                    <label for="nomePedal">Nome do Pedal</label>
                                 </div>
                             </div>
                             <div class="row">
@@ -95,6 +108,18 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="localSaida" name="localSaida" type="text" class="validate">
+                                    <label for="localSaida">Local de Saída</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="localDestino" name="localDestino" type="text" class="validate">
+                                    <label for="localDestino">Local de Destino</label>
+                                </div>
+                            </div>
 
                             <div class="row">
                                 <div class="input-field col s12">
@@ -104,7 +129,7 @@
                             </div>
 
                             <div class="row" style="text-align: right">
-                                <button class="btn waves-effect theme-color blue darken-2" type="button" name="enviar" id="enviar">Enviar
+                                <button class="btn waves-effect theme-color blue darken-2" type="button" name="enviar" id="enviar">Agendar Pedal
                                     <i class="material-icons right">send</i>
                                 </button>
                             </div>
@@ -119,6 +144,7 @@
 {% block javascripts %}
     {% javascripts
     '@AgendaPedalBundle/Resources/public/js/Agendamento/Agendamento.js'
+    '@AgendaPedalBundle/Resources/public/js/Agendamento/materialize.clockpicker.js'
     %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
