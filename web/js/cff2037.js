@@ -34,6 +34,8 @@ var AgendaPedal = {
         this.campos.salvar            = $("#enviar");
         this.campos.data              = $("#dataPedal");
         this.campos.hora              = $("#horaPedal");
+        this.campos.localSaida        = $("#localSaida");
+        this.campos.localDestino      = $("#localDestino");
 
         this.aplicarMascarasNosCampos();
     },
