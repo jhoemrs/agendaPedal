@@ -20,16 +20,16 @@
             <div class="card">
                 <div class="card-content blue-text">
                     <div class="row">
-                        <form class="col s12">
+                        <form class="col s12" id="agendamentoFormulario" action="#" method="post">
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="first_name" type="text" class="validate">
+                                    <input id="nomePedal" name="nomePedal" type="text" class="validate">
                                     <label for="first_name">Pedal</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <select>
+                                    <select name="tipoPedal" id="tipoPedal">
                                         <option value="" disabled selected>Selecione</option>
                                         {% for tipo in tipos %}
                                             <option value="{{ tipo.codigo }}">{{ tipo.nome }}</option>
@@ -40,7 +40,7 @@
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <select>
+                                    <select name="ritmoPedal" id="ritmoPedal">
                                         <option value="" disabled selected>Selecione</option>
                                         {% for ritmo in ritmos %}
                                             <option value="{{ ritmo.codigo }}">{{ ritmo.nome }}</option>
@@ -51,7 +51,7 @@
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <select>
+                                    <select name="distanciaPedal" id="distanciaPedal">
                                         <option value="" disabled selected>Selecione</option>
                                         {% for distancia in distancias %}
                                             <option value="{{ distancia.codigo }}">{{ distancia.nome }}</option>
@@ -60,19 +60,37 @@
                                     <label>Distância</label>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="input-field col s4">
+                                    <select name="estado" id="estado">
+                                        <option value="" disabled selected>Selecione</option>
+                                        {% for estado in estados %}
+                                            <option value="{{ estado.id }}">{{ estado.uf }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <label for="estado">Estado</label>
+                                </div>
+                                <div class="input-field col s8">
+                                    <select name="cidade" id="cidade">
+
+                                    </select>
+                                    <label for="cidade">Cidade</label>
+                                </div>
+                            </div>
+
                             <div class="row">
                                 <div class="input-field col s12">
                                     <label>Carro de Apoio</label>
                                     <div class="input-field col s6">
-
                                         <p>
-                                            <input name="group1" type="radio" id="test1" />
+                                            <input name="carroApoio" type="radio" id="sim" value="1" />
                                             <label for="test1">Sim</label>
                                         </p>
                                     </div>
                                     <div class="input-field col s6">
                                         <p>
-                                            <input name="group1" type="radio" id="test2" />
+                                            <input name="carroApoio" type="radio" id="nao" value="0" />
                                             <label for="test2">Não</label>
                                         </p>
                                     </div>
@@ -81,13 +99,13 @@
 
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <textarea id="textarea1" class="materialize-textarea" length="120"></textarea>
-                                    <label for="textarea1">Observações</label>
+                                    <textarea id="observacoes" class="materialize-textarea" length="120"></textarea>
+                                    <label for="observacoes">Observações</label>
                                 </div>
                             </div>
 
                             <div class="row" style="text-align: right">
-                                <button class="btn waves-effect theme-color" type="submit" name="action">Enviar
+                                <button class="btn waves-effect theme-color" type="submit" name="enviar" id="enviar">Enviar
                                     <i class="material-icons right">send</i>
                                 </button>
                             </div>

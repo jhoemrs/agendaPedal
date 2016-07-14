@@ -4,6 +4,7 @@ namespace AgendaPedalBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Class AgendamentoController
@@ -11,6 +12,38 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
  */
 class AgendamentoController extends Controller
 {
+    //------------------------------------------Mágicos----------------------------------------------//
+
+    //------------------------------------------Privados---------------------------------------------//
+
+    /**
+     * @param string $idEstado
+     * @return array
+     */
+    private function carregarOpcoesCidadePorEstado($idEstado)
+    {
+        /* @var $paisEstadoCidadeCarregador \AgendaPedalBundle\Services\PaisEstadoCidade\PaisEstadoCidadeCarregador */
+        $paisEstadoCidadeCarregador = $this->get('agenda_pedal.pais_estado_cidade.carregador');
+
+        $estado = $paisEstadoCidadeCarregador->findEstado($idEstado);
+        $cidades = $paisEstadoCidadeCarregador->findCidadesByEstado($estado);
+
+        $listaCidades = array();
+
+        foreach ($cidades as $cidade) {
+            $listaCidades[] = array(
+                'id' => $cidade->getId(),
+                'nome' => $cidade->getNome(),
+            );
+        }
+
+        return $listaCidades;
+    }
+
+    //-----------------------------------------Protegidos--------------------------------------------//
+
+    //------------------------------------------Publicos---------------------------------------------//
+
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/" , name="agendamento")
@@ -28,31 +61,31 @@ class AgendamentoController extends Controller
         $ritmos     = $ritmoCarregador->findAll();
         $tipos      = $tipoCarregador->findAll();
 
+        /* @var $paisEstadoCidadeCarregador \AgendaPedalBundle\Services\PaisEstadoCidade\PaisEstadoCidadeCarregador */
+        $paisEstadoCidadeCarregador = $this->get('agenda_pedal.pais_estado_cidade.carregador');
+
+        $estados = $paisEstadoCidadeCarregador->findAllEstados();
+
         return $this->render('AgendaPedalBundle:Agendamento:index.html.twig', array(
             'distancias' => $distancias,
             'ritmos'     => $ritmos,
-            'tipos'      => $tipos
+            'tipos'      => $tipos,
+            'estados'    => $estados
         ));
     }
 
     /**
-     * @Route("/teste" , name="testeServices")
+     * @Route("/agendamento/cidadesPorEstado/{estado}" , name="agendamentoCidadesPorEstado")
+     * @param string $estado
+     * @return JsonResponse
      */
-    public function testeAction()
+    public function testeAction($estado)
     {
-        $distanciaCarregador = $this->get('agenda_pedal.distancia_pedal.carregador');
-
-        $ritmoCarregador = $this->get('agenda_pedal.ritmo_pedal.carregador');
-
-        $tipoCarregador = $this->get('agenda_pedal.tipo_pedal.carregador');
-
-        var_dump($distanciaCarregador->findAll());
-
-        var_dump($ritmoCarregador->findAll());
-
-        var_dump($tipoCarregador->findAll());
-
-        var_dump('cheguei aqui');exit;
+        return new JsonResponse(array(
+            'cidades' => $this->carregarOpcoesCidadePorEstado($estado),
+        ));
     }
+
+    //--------------------------------------Getters & Setters----------------------------------------//
 
 }

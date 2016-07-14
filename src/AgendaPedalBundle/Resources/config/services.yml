@@ -21,3 +21,10 @@ services:
         class: AgendaPedalBundle\Services\TipoPedal\TipoPedalCarregador
         arguments: ["@doctrine.orm.entity_manager"]
     ##==============================================================================================##
+    ##################################################################################################
+    ##                                       Pais Estado Cidade                                     ##
+    ##################################################################################################
+    agenda_pedal.pais_estado_cidade.carregador:
+        class: AgendaPedalBundle\Services\PaisEstadoCidade\PaisEstadoCidadeCarregador
+        arguments: ["@doctrine.orm.entity_manager"]
+    ##==============================================================================================##
