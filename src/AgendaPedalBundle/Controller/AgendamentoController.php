@@ -35,6 +35,10 @@ class AgendamentoController extends Controller
 
         var_dump($distanciaCarregador->findAll());
 
+        var_dump($ritmoCarregador->findAll());
+
+        var_dump($tipoCarregador->findAll());
+
         var_dump('cheguei aqui');exit;
     }
 
