@@ -42,6 +42,23 @@ class Agendamento
      */
     private $observacoes;
 
+    /**
+     * @ORM\OneToOne(targetEntity="DistanciaPedal")
+     * @ORM\JoinColumn(name="distancia_pedal", referencedColumnName="codigo")
+     */
+    private $distanciaPedal;
+
+    /**
+     * @ORM\OneToOne(targetEntity="RitmoPedal")
+     * @ORM\JoinColumn(name="ritmo_pedal", referencedColumnName="codigo")
+     */
+    private $ritmoPedal;
+
+    /**
+     * @ORM\OneToOne(targetEntity="TipoPedal")
+     * @ORM\JoinColumn(name="tipo_pedal", referencedColumnName="codigo")
+     */
+    private $tipoPedal;
 
     /**
      * Get id

@@ -1,4 +1,23 @@
 services:
-#    agenda_pedal.example:
-#        class: AgendaPedalBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+    ######################################  Agenda Pedal Bundle  #####################################
+    ##################################################################################################
+    ##                                        Distancia Pedal                                       ##
+    ##################################################################################################
+    agenda_pedal.distancia_pedal.carregador:
+        class: AgendaPedalBundle\Services\DistanciaPedal\DistanciaPedalCarregador
+        arguments: ["@doctrine.orm.entity_manager"]
+    ##==============================================================================================##
+    ##################################################################################################
+    ##                                           Ritmo Pedal                                        ##
+    ##################################################################################################
+    agenda_pedal.ritmo_pedal.carregador:
+        class: AgendaPedalBundle\Services\RitmoPedal\RitmoPedalCarregador
+        arguments: ["@doctrine.orm.entity_manager"]
+    ##==============================================================================================##
+    ##################################################################################################
+    ##                                            Tipo Pedal                                        ##
+    ##################################################################################################
+    agenda_pedal.tipo_pedal.carregador:
+        class: AgendaPedalBundle\Services\TipoPedal\TipoPedalCarregador
+        arguments: ["@doctrine.orm.entity_manager"]
+    ##==============================================================================================##
