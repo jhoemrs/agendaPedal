@@ -141,5 +141,62 @@ class Agendamento
     {
         return $this->observacoes;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDistanciaPedal()
+    {
+        return $this->distanciaPedal;
+    }
+
+    /**
+     * @param mixed $distanciaPedal
+     * @return Agendamento
+     */
+    public function setDistanciaPedal($distanciaPedal)
+    {
+        $this->distanciaPedal = $distanciaPedal;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRitmoPedal()
+    {
+        return $this->ritmoPedal;
+    }
+
+    /**
+     * @param mixed $ritmoPedal
+     * @return Agendamento
+     */
+    public function setRitmoPedal($ritmoPedal)
+    {
+        $this->ritmoPedal = $ritmoPedal;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTipoPedal()
+    {
+        return $this->tipoPedal;
+    }
+
+    /**
+     * @param mixed $tipoPedal
+     * @return Agendamento
+     */
+    public function setTipoPedal($tipoPedal)
+    {
+        $this->tipoPedal = $tipoPedal;
+
+        return $this;
+    }
 }
 
