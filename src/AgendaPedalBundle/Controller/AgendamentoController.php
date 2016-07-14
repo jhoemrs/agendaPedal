@@ -17,8 +17,21 @@ class AgendamentoController extends Controller
      */
     public function indexAction()
     {
+        /* @var $distanciaCarregador \AgendaPedalBundle\Services\DistanciaPedal\DistanciaPedalCarregador */
+        $distanciaCarregador = $this->get('agenda_pedal.distancia_pedal.carregador');
+        /* @var $ritmoCarregador \AgendaPedalBundle\Services\RitmoPedal\RitmoPedalCarregador */
+        $ritmoCarregador = $this->get('agenda_pedal.ritmo_pedal.carregador');
+        /* @var $tipoCarregador \AgendaPedalBundle\Services\TipoPedal\TipoPedalCarregador */
+        $tipoCarregador = $this->get('agenda_pedal.tipo_pedal.carregador');
+
+        $distancias = $distanciaCarregador->findAll();
+        $ritmos     = $ritmoCarregador->findAll();
+        $tipos      = $tipoCarregador->findAll();
+
         return $this->render('AgendaPedalBundle:Agendamento:index.html.twig', array(
-            // ...
+            'distancias' => $distancias,
+            'ritmos'     => $ritmos,
+            'tipos'      => $tipos
         ));
     }
 

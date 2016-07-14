@@ -31,9 +31,9 @@
                                 <div class="input-field col s12">
                                     <select>
                                         <option value="" disabled selected>Selecione</option>
-                                        <option value="1">Asfalto</option>
-                                        <option value="2">MTB</option>
-                                        <option value="3">Misto</option>
+                                        {% for tipo in tipos %}
+                                            <option value="{{ tipo.codigo }}">{{ tipo.nome }}</option>
+                                        {% endfor %}
                                     </select>
                                     <label>Tipo de Pedal</label>
                                 </div>
@@ -42,9 +42,9 @@
                                 <div class="input-field col s12">
                                     <select>
                                         <option value="" disabled selected>Selecione</option>
-                                        <option value="1">Leve</option>
-                                        <option value="2">Médio</option>
-                                        <option value="3">Intenso</option>
+                                        {% for ritmo in ritmos %}
+                                            <option value="{{ ritmo.codigo }}">{{ ritmo.nome }}</option>
+                                        {% endfor %}
                                     </select>
                                     <label>Ritmo</label>
                                 </div>
@@ -53,10 +53,9 @@
                                 <div class="input-field col s12">
                                     <select>
                                         <option value="" disabled selected>Selecione</option>
-                                        <option value="1">Curta - Até 30 KM</option>
-                                        <option value="2">Média - 30 a 80 KM</option>
-                                        <option value="3">Mediana - 80 a 150 KM</option>
-                                        <option value="4">Longa - acima de 150 KM</option>
+                                        {% for distancia in distancias %}
+                                            <option value="{{ distancia.codigo }}">{{ distancia.nome }}</option>
+                                        {% endfor %}
                                     </select>
                                     <label>Distância</label>
                                 </div>
