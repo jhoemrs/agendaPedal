@@ -4,3 +4,13 @@
 .theme-color:hover {
     background-color: #1e88e5;
 }
+
+body {
+    background-color: #1976d2;
+}
+
+#apoioDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

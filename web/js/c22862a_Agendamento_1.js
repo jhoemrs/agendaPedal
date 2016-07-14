@@ -42,7 +42,7 @@ var AgendaPedal = {
         if (this.formularioIniciado !== false) {
             return;
         }
-
+        this.campos.cidade.attr({'disabled': true});
         console.log('Aplica Mascara se Houver');
     },
 
