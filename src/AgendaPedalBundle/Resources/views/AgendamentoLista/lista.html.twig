@@ -1,0 +1,51 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AgendaPedal - Lista{% endblock %}
+
+
+{% block body %}
+    {%stylesheets
+    '@AgendaPedalBundle/Resources/public/css/AgendamentoLista/AgendamentoLista.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+    <nav class="blue darken-4">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo center">Agenda Pedal Lista</a>
+        </div>
+    </nav>
+
+    {% for agendamento in agendamentos %}
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card grey lighten-5">
+                    <div class="card-content blue-text">
+                        <span class="card-title">{{ agendamento.nome }}</span>
+
+                        <ul class="collection">
+                            <li class="collection-item">{{ agendamento.cidade.nome }} - {{ agendamento.estado.uf }}</li>
+                            <li class="collection-item">Dia: {{ agendamento.dataPedal | date("d/m/Y") }} às {{ agendamento.horaPedal }}</li>
+                            <li class="collection-item">Distância do Pedal: {{ agendamento.distanciaPedal.nome }}</li>
+                            <li class="collection-item">Ritmo do Pedal: {{ agendamento.ritmoPedal.nome }}</li>
+                            <li class="collection-item">Tipo do Terreno: {{ agendamento.tipoPedal.nome }}</li>
+                            <li class="collection-item">Carro de Apoio: {{ agendamento.apoio ? 'Sim' : 'Não' }}</li>
+                            <li class="collection-item">Local de Saída: {{ agendamento.localSaida }}</li>
+                            <li class="collection-item">Local de Destino: {{ agendamento.localDestino }}</li>
+                            <li class="collection-item">Observações: {{ agendamento.observacoes }}</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}
+{% block javascripts %}
+    {% javascripts
+    '@AgendaPedalBundle/Resources/public/js/AgendamentoLista/AgendamentoLista.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+

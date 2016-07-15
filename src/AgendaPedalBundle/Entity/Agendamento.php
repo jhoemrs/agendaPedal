@@ -43,31 +43,31 @@ class Agendamento
     private $observacoes;
 
     /**
-     * @ORM\ManyToOne(targetEntity="DistanciaPedal")
+     * @ORM\ManyToOne(targetEntity="DistanciaPedal" , fetch="EAGER")
      * @ORM\JoinColumn(name="distancia_pedal", referencedColumnName="codigo")
      */
     private $distanciaPedal;
 
     /**
-     * @ORM\ManyToOne(targetEntity="RitmoPedal")
+     * @ORM\ManyToOne(targetEntity="RitmoPedal" , fetch="EAGER")
      * @ORM\JoinColumn(name="ritmo_pedal", referencedColumnName="codigo")
      */
     private $ritmoPedal;
 
     /**
-     * @ORM\ManyToOne(targetEntity="TipoPedal")
+     * @ORM\ManyToOne(targetEntity="TipoPedal" , fetch="EAGER")
      * @ORM\JoinColumn(name="tipo_pedal", referencedColumnName="codigo")
      */
     private $tipoPedal;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Estado")
+     * @ORM\ManyToOne(targetEntity="Estado" , fetch="EAGER")
      * @ORM\JoinColumn(name="estado", referencedColumnName="id")
      */
     private $estado;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Cidade")
+     * @ORM\ManyToOne(targetEntity="Cidade" , fetch="EAGER")
      * @ORM\JoinColumn(name="cidade", referencedColumnName="id")
      */
     private $cidade;

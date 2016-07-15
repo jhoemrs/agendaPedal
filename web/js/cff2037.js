@@ -178,7 +178,7 @@ var AgendaPedal = {
             cache: false,
             data: dadosFormulario,
             success: function(response) {
-                console.log('cheguei');
+                window.location.href = 'agendamento/lista';
             }
         });
     }
